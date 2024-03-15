@@ -1,5 +1,8 @@
 name: octink
 
+env: Set PYTHONPATH
+run: echo "PYTHONPATH=$GITHUB_WORKSPACE/octink" >> $GITHUB_ENV
+
 on:
   push:
     branches:
@@ -14,10 +17,10 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
       
-    - name: Set up Python 3.9
+    - name: Set up Python
       uses: actions/setup-python@v2
       with:
-        python-version: 3.9
+        python-version: '3.9'
         
     - name: Install dependencies
       run: pip install -r requirements.txt
@@ -33,14 +36,15 @@ jobs:
         export_default_credentials: true
       
     - name: Configure Docker
-      run: gcloud auth configure-docker 
+      run: gcloud auth configure-docker
 
     - name: Build and Push Docker image
       run: |
-        docker build -t gcr.io/${{ secrets.GCP_PROJECT_ID }}/my-app:$GITHUB_SHA .
-        docker push gcr.io/${{ secrets.GCP_PROJECT_ID }}/my-app:$GITHUB_SHA
+        docker build -t gcr.io/${{ secrets.GCP_PROJECT_ID }}/octink:$GITHUB_SHA .
+        docker push gcr.io/${{ secrets.GCP_PROJECT_ID }}/octink:$GITHUB_SHA
 
-    - name: Deploy to Google Cloud Run
+    - name: Deploy to Cloud Run
       run: |
-        gcloud run deploy my-service --image gcr.io/${{ secrets.GCP_PROJECT_ID }}/my-app:$GITHUB_SHA --platform managed --region us-central1 --allow-unauthenticated
+        gcloud run deploy octink-service --image gcr.io/${{ secrets.GCP_PROJECT_ID }}/octink:$GITHUB_SHA --project ${{ secrets.GCP_PROJECT_ID }} --region us-central1 --platform managed
+
 

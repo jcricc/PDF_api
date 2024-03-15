@@ -4,6 +4,7 @@ from google.oauth2 import service_account
 import os
 import asyncio
 
+
 # Load environment variables
 GCP_SERVICE_ACCOUNT_FILE = os.getenv('GCP_SERVICE_ACCOUNT_FILE')
 GCP_BUCKET_NAME = os.getenv('GCP_BUCKET_NAME')

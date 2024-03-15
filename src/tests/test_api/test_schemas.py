@@ -1,5 +1,4 @@
-from app.schemas import PromptRequest, PDFResponse
-from pydantic import ValidationError
+from app.schemas import PromptRequest, PDFResponse, ValidationError
 import pytest
 
 def test_prompt_request_schema():

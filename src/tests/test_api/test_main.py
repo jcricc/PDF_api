@@ -1,11 +1,10 @@
 from fastapi.testclient import TestClient
 from app.main import app  # Adjust according to your project structure
-
 client = TestClient(app)
 
-def test_generate_pdf_endpoint():
+def test_generate_pdf_success():
     response = client.post(
-        "/generate-pdf/",
+        "generate-pdf/",
         json={"prompt": "Test Prompt"},  # Adjusted to match PromptRequest schema
         headers={"x-token": "expected_token"}
     )

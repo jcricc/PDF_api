@@ -23,9 +23,10 @@ dist/
 # Virtual environment
 .venv/
 
+dockerignore
+
 # Environment variables
 .env
-.env.example
 
 # VSCode settings
 .vscode/
@@ -35,5 +36,6 @@ dist/
 *.swp
 *.swo
 
-.GCP_SERVICE_ACCOUNT_FILE
+pytest
+
 
