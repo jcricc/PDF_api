@@ -1,6 +1,18 @@
 # Use an official lightweight Python image.
 FROM python:3.9-slim
 
+# Install system dependencies required by WeasyPrint.
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends \
+        libpango-1.0-0 \
+        libpangocairo-1.0-0 \
+        libgdk-pixbuf2.0-0 \
+        libffi-dev \
+        shared-mime-info \
+    && rm -rf /var/lib/apt/lists/*
+
+# Continue with your existing Dockerfile setup...
+
 # Set environment variables.
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1

@@ -1,4 +1,4 @@
-from schemas import PromptRequest, PDFResponse
+from app.schemas import PromptRequest, PDFResponse
 from pydantic import ValidationError
 import pytest
 
@@ -20,6 +20,7 @@ def test_prompt_request_schema():
 
     # Test missing required field
     with pytest.raises(ValidationError):
+        PromptRequest(prompt="Test Prompt")
         PromptRequest()
 
 def test_pdf_response_schema():

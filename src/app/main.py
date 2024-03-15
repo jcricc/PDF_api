@@ -1,10 +1,9 @@
-from fastapi import FastAPI, Depends, BackgroundTasks, HTTPException
-from fastapi.responses import FileResponse
+from fastapi import FastAPI, Depends, BackgroundTasks
 from weasyprint import HTML
 import tempfile
 import os
-from app.dependencies import verify_token, get_query_validator  # Adjust import paths as necessary
-from app.schemas import PromptRequest, PDFResponse  # Adjust import paths as necessary
+from app.dependencies import verify_token, get_query_validator, html_to_pdf, cleanup_file  # Adjust import paths as necessary
+from app.schemas import PromptRequest, PDFResponse # Adjust import paths as necessary
 
 app = FastAPI()
 
