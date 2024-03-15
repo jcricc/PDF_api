@@ -1,0 +1,39 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+*.pyc
+# Distribution / packaging
+.Python
+build/
+dist/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# PyTest cache
+.pytest_cache/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Virtual environment
+.venv/
+
+# Environment variables
+.env
+.env.example
+
+# VSCode settings
+.vscode/
+
+# Other files and folders to ignore
+.DS_Store
+*.swp
+*.swo
+
+.GCP_SERVICE_ACCOUNT_FILE
+

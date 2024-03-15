@@ -1,0 +1,10 @@
+fastapi
+uvicorn
+reportlab
+python-multipart
+aiofiles
+jinja2
+google-cloud-storage
+weasyprint
+pydantic
+pytest
