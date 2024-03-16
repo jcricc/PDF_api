@@ -1,0 +1,3 @@
+FastAPI App for integration with ChatGPT Custom GPT Actions - Transforms HTML into downloadable PDF file and returns it back to the chatgpt user
+
+Still adding touches...
